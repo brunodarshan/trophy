@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    container_name: database
+    restart: always
+    image: postgres
+    volumes:
+      - ./data/postgres/db:/var/lib/postgresql/data
+    ports:
+      - 5432
+    env_file:
+      - '.env'
+
+  app:
+    container_name: app
+    build: .
+    volumes:
+      - .:/goals
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    ports:
+      - 3000
+    env_file:
+      - '.env'
