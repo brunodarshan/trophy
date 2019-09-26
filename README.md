@@ -1,24 +1,22 @@
-# README
+# Trophy Goals :trophy:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Teste para a vaga de Back-end developer Ribon.
 
-Things you may want to cover:
+# Get Started
 
-* Ruby version
+Este projeto foi desenvolvivo em um ambiente containerizado. Para utilizá-lo você pode seguir os seguinte passos. 
 
-* System dependencies
+```$ make install``` 
 
-* Configuration
+```$ make run```
 
-* Database creation
+Se não:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+    docker-compose down && 
+    docker-compose run --rm app rails db:create db:migrate db:seed
+```
+seguido de:
+```
+    docker-compose up
+```
