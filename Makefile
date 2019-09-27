@@ -4,8 +4,16 @@ run:
 build:
 	docker-compose build
 
-db_resume:
-	docker-compose run --rm app rails db:create db:migrate db:seed
+create:
+	docker-compose run --rm app rails db:create
+
+migrate:
+	docker-compose run --rm app rails db:migrate
+
+seed:
+	docker-compose run --rm app rails db:seed
+
+db_resume: create migrate seed
 
 make kill:
 	docker-compose down
