@@ -1,0 +1,2 @@
+class CoinsTrophy < Trophy
+end
