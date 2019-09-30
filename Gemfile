@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rspec-rails', '~> 3.8.2'
+
+gem 'sidekiq', '~>6.0.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
