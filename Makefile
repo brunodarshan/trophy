@@ -4,6 +4,9 @@ run:
 build:
 	docker-compose build
 
+drop:
+	docker-compose run --rm app rails db:drop
+
 create:
 	docker-compose run --rm app rails db:create
 
@@ -13,7 +16,10 @@ migrate:
 seed:
 	docker-compose run --rm app rails db:seed
 
-db_resume: create migrate seed
+console:
+	docker-compose run --rm app rails console
+
+db_resume: drop create migrate seed
 
 make kill:
 	docker-compose down
