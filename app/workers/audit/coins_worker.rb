@@ -3,8 +3,7 @@
 module Audit
   class CoinsWorker < WorkerBase
     def perform(user_id)
-      # Count colleted coins by user and
-      # verify if has trophy to quantity collected
+      CoinsTrophyService.new.call(user_id)
     end
   end
 end

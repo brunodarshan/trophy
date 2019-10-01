@@ -4,8 +4,8 @@ class CoinsController < ApplicationController
   def create
     @colleted_coins = ColletedCoin.new(collet_coins_params)
     if @colleted_coins.save
-      # TO DO -> perform verify if can generate trophy
-      render json: nil, status: :ok
+      Audit::CoinsWorker.perform_async(collet_coins_params[:user_id])
+      render json: { status: :success, msg: 'Has'}, status: :ok
     else
       render json: { status: :error, data: @colleted_coins.errors }, status: :unauthorized
     end
