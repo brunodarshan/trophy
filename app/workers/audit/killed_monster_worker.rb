@@ -3,8 +3,7 @@
 module Audit
   class KilledMonsterWorker < WorkerBase
     def perform(user_id, monster_id)
-      # count all monsters by id killed by user
-      # and verify trophy
+      AfterKillMonster.new(user_id, monster_id).call
     end
   end
 end
