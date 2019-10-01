@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def update
     @death = @user.deaths.new
     if @death.save
-      # TO DO
-      render json: nil, status: :ok
+      Audit::DeathsWorker.perform_async(@user.id)
+      render json: {
+        msg: :success, data: "#{@user.username} was killed in #{@death.when}"
+      }, status: :ok
     else
       render json: {
         msg: :error, data: @death.errors
