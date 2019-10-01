@@ -24,4 +24,7 @@ db_resume: drop create migrate seed
 make kill:
 	docker-compose down
 
-make prepare: kill build db_resume
+prepare: kill build db_resume
+
+run_tests: 
+	docker-compose run --rm app bin/bundle exec rspec spec -f d

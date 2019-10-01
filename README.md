@@ -6,17 +6,7 @@ Teste para a vaga de Back-end developer Ribon.
 
 Este projeto foi desenvolvivo em um ambiente containerizado. Para utilizá-lo você pode seguir os seguinte passos. 
 
-```$ make install``` 
+```$ make prepare```
 
-```$ make run```
 
-Se não:
-
-```
-    docker-compose down && 
-    docker-compose run --rm app rails db:create db:migrate db:seed
-```
-seguido de:
-```
-    docker-compose up
-```
+```$ make run_tests```
