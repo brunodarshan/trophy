@@ -29,7 +29,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rspec-rails', '~> 3.8.2'
 
+
 gem 'sidekiq', '~>6.0.0'
+gem 'redis-rails', '>= 5.0.2'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
